@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine’s Day ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      max-width: 720px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeIn 2s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: #c9184a;
+      margin-bottom: 25px;
+    }
+
+    p {
+      color: #4a1c2b;
+      line-height: 1.8;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .question {
+      font-size: 22px;
+      margin: 35px 0 20px;
+      font-weight: bold;
+      color: #a4133c;
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background: #adb5bd;
+      color: white;
+      position: absolute;
+      left: 55%;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: rgba(255, 77, 109, 0.6);
+      font-size: 20px;
+      animation: floatUp 8s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    .fade-out {
+      animation: fadeOut 1.5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: scale(0.95); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" id="card">
+    <h1>Happy Valentine’s Day ❤️</h1>
+
+    <p>
+      Happy Valentine’s Day, my love. There are moments when I look at you and feel overwhelmed by how grateful I am that you are my husband. Out of all the paths life could’ve taken, it led me to you—and that will always feel like the greatest blessing of my life. Loving you isn’t just something I do; it’s something I am.
+    </p>
+
+    <p>
+      You’ve seen me at my strongest and at my most fragile, and you’ve loved me through all of it without hesitation. You hold me when words fail, you steady me when I feel unsure, and you remind me—every single day—that I’m never alone. Your love feels like home: safe, warm, and constant, even when the world feels overwhelming.
+    </p>
+
+    <p>
+      I’m so proud of the life we’re building together. The quiet moments, the laughter, the hard days we’ve survived, and the dreams we’re still chasing—they all mean more to me because they’re shared with you. You make ordinary days meaningful and difficult days bearable just by being you.
+    </p>
+
+    <p>
+      Thank you for choosing me, for standing beside me, and for loving me so deeply and genuinely. I don’t take a single part of you or us for granted. I would choose you again and again, in every lifetime, without question. You are my heart, my partner, my forever. Happy Valentine’s Day—now and always, you are my greatest love.
+    </p>
+
+    <p>
+      Now, I have an important question for you.
+    </p>
+
+    <div class="question">Will you be my Valentine?</div>
+
+    <div class="buttons">
+      <button id="yes" onclick="goNext()">Yes 💖</button>
+      <button id="no">No 💔</button>
+    </div>
+  </div>
+
+  <script>
+    // Make "No" button dodge
+    const noBtn = document.getElementById("no");
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.left = Math.random() * 250 + "px";
+      noBtn.style.top = Math.random() * 40 + "px";
+    });
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 500);
+
+    // Animated transition to next page
+    function goNext() {
+      document.getElementById("card").classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = "yes.html";
+      }, 1400);
+    }
+  </script>
+
+</body>
+</html>
